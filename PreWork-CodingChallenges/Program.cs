@@ -64,7 +64,7 @@ namespace PreWork_CodingChallenges
                     myArray[i, j] = TwoDArray;
                 }
                 ArraySumTool(myArray);
-                // CATCH the array int[] something = syntax
+                 ///CATCH the array int[] something = syntax
             }
 
         }
