@@ -11,6 +11,7 @@ namespace PreWork_CodingChallenges
             for (int i = 0; i < numbers.Length; i++) //iterate a counter 5 times
             {
                 //ask the user for numbers and put them in the array
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("Please enter a number between 1-10: ");
                 string answer = Console.ReadLine();
                 int result = Int32.Parse(answer);
@@ -26,48 +27,60 @@ namespace PreWork_CodingChallenges
             string value = Console.ReadLine();
             int target = Int32.Parse(value);
             Console.WriteLine($"your score is {MaxArrayResult(numbers, target)}!!!! ");
-          
+            Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Please provide a year to check if it is a Gregorian Leap Year!");
             string year = Console.ReadLine();
             int gyear = Int32.Parse(year);
             LeapYearCalc(gyear);
             Console.WriteLine($"{LeapYearCalc(gyear)}");
+            Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
             int[] numbers2 = new int[3];
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             for (int i = 0; i < numbers2.Length; i++) //iterate a counter 5 times
             {
                 //ask the user for numbers and put them in the array
                 Console.WriteLine("Please enter a number between 1-10: ");
                 string answer2 = Console.ReadLine();
                 int result2 = Int32.Parse(answer2);
-                numbers[i] = result2;
+                numbers2[i] = result2;
 
             }
             Console.WriteLine($"{PerfectArrayCalc(numbers2)}");
+            Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
-            Console.WriteLine("How many rows do you need?");
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("How many rows do you need? 1-3");
             string arrayValue1 = Console.ReadLine();
-            int arrayCount = Int32.Parse(arrayValue1);
-            Console.WriteLine("How many columns");
+            int rows = Int32.Parse(arrayValue1);
+            Console.WriteLine("How many columns? 3-5");
             string arrayValue2 = Console.ReadLine();
-            int arraySize = Int32.Parse(arrayValue2);
-            int[,] myArray = new int[arrayCount, arraySize];
-            int sum = 0;
+            int columns = Int32.Parse(arrayValue2);
+            // int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } }; //mocked values
+            int[,] myArray = new int[rows, columns];
+            //int sum = 0;
             for (int i = 0; i < myArray.GetLength(0); i++)
             {
                 for (int j = 0; j < myArray.GetLength(1); j++)
                 {
                     Console.WriteLine("Please provide a number for your array: ");
                     string arrayValue3 = Console.ReadLine();
-                    int TwoDArray = Int32.Parse(arrayValue3);
-                    myArray[i, j] = TwoDArray;
+                    int twoDArray = Int32.Parse(arrayValue3);
+                    myArray[i, j] = twoDArray;
                 }
-                ArraySumTool(myArray);
-                 ///CATCH the array int[] something = syntax
+
             }
 
+            int[] results = ArraySumTool(myArray);
+            Console.WriteLine(string.Join(',', results));
+            Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            Console.ReadLine();
+
+
         }
+        
 
         static int MaxArrayResult(int[] numbers, int target)
         {
@@ -84,7 +97,7 @@ namespace PreWork_CodingChallenges
         }
         static bool LeapYearCalc(int year)
         {
-            
+
             if (year % 4 == 0)
             {
                 if (year % 100 == 0)
@@ -96,7 +109,7 @@ namespace PreWork_CodingChallenges
                     return false;
                 }
                 return true;
-                
+
             }
             return false;
         }
@@ -132,7 +145,7 @@ namespace PreWork_CodingChallenges
                 sumValues[i] = sum;
             }
             return sumValues;
-       }
+        }
     }
-    
+
 }
